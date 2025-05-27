@@ -1,23 +1,32 @@
-  <link rel="stylesheet" href="./header.component.css">
+<link rel="stylesheet" href="./header.component.css">
 
 <nav class="navbar navbar-expand navbar-dark bg-dark">
-  <a class="navbar-brand " href="./index.html">Marcos Filmes</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
+  <h1 class="navbar-brand ">Marcos Filmes</h1>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02"
+          aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarsExample02">
+  <div class="collapse navbar-collapse gap-3" id="navbarsExample02">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(atual)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
+        <a class="nav-link" [routerLink]="'pagina-inicial'" [routerLinkActive]="'active'">Inicio<span class="sr-only">(atual)</span></a>
       </li>
     </ul>
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Filmes/séries
+      </button>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" [routerLink]="'filmes'" [routerLinkActive]="'active'">Filmes</a></li>
+        <li><a class="dropdown-item" href="#">Séries</a></li>
+        <li><a class="dropdown-item" href="#">Animes</a></li>
+      </ul>
+    </div>
     <form class="d-flex ms-auto form-inline my-2 my-md-0">
       <input class="form-control" type="text" placeholder="Pesquisar">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fa-solid fa-magnifying-glass"></i>
+      </button>
     </form>
   </div>
 </nav>
