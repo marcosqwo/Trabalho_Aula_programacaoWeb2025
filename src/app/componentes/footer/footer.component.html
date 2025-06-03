@@ -1,12 +1,13 @@
-<footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top ">
+<footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
   <div class="col-md-4 d-flex align-items-center">
     <a href="./index.html" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1"
        aria-label="Bootstrap">
       <svg class="bi" width="30" height="24" aria-hidden="true">
         <use xlink:href="#bootstrap"></use>
       </svg>
+
     </a>
-    <span class="mb-3 mb-md-0 text-body-secondary">© 2025 Company, Inc</span>
+    <span class="mb-3 mb-md-0 text-body-secondary">© 2025 Tudo Filmes, Inc ltda</span>
   </div>
   <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
     <li class="ms-3"><a class="text-body-secondary" href="#" aria-label="Instagram">
@@ -21,10 +22,10 @@
     </a></li>
   </ul>
   <ul class="nav col-md-4 justify-content-end">
-    <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
-    <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Features</a></li>
-    <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Pricing</a></li>
-    <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">FAQs</a></li>
-    <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">About</a></li>
+    <li class="nav-item"><a [routerLink]="'pagina-inicial'" [routerLinkActive]="'active'" class="nav-link px-2 text-body-secondary">Início</a></li>
+    <li class="nav-item"><a [routerLink]="'filmes'" [routerLinkActive]="'active'" class="nav-link px-2 text-body-secondary">Filmes</a></li>
+    <li class="nav-item"><a [routerLink]="'series'" [routerLinkActive]="'active'" class="nav-link px-2 text-body-secondary">Séries</a></li>
+    <li class="nav-item"><a [routerLink]="'cadastro'" [routerLinkActive]="'active'" class="nav-link px-2 text-body-secondary">Cadastre-se</a></li>
+    <li class="nav-item"><a [routerLink]="'sobre'" [routerLinkActive]="'active'" class="nav-link px-2 text-body-secondary">Sobre</a></li>
   </ul>
 </footer>

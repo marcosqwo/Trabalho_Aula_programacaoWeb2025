@@ -4,13 +4,20 @@ import { PaginaInicialComponent } from './componentes/pagina-inicial/pagina-inic
 import {FooterComponent} from "./componentes/footer/footer.component";
 import {FilmesComponent} from "./componentes/filmes/filmes.component";
 import {HeaderComponent} from "./componentes/header/header.component";
+import {CadastroUsuarioComponent} from "./componentes/cadastro-usuario/cadastro-usuario.component";
+import {SobreComponent} from "./componentes/sobre/sobre.component";
+import {SeriesComponent} from "./componentes/series/series.component";
 
 const routes: Routes = [
   {path: '',redirectTo:"pagina-inicial",pathMatch:"full"},
   {path: 'pagina-inicial', component: PaginaInicialComponent},
   {path: 'footer', component: FooterComponent},
   {path: 'filmes', component: FilmesComponent},
-  {path: 'header', component: HeaderComponent}
+  {path: 'header', component: HeaderComponent},
+  {path: 'cadastro', component: CadastroUsuarioComponent},
+  {path: 'sobre', component: SobreComponent},
+  {path: 'series', component: SeriesComponent}
+
 ];
 
 
