@@ -1,1 +1,72 @@
+<div class="bg-dark">
+  <div class="form-control bg-dark text-white d-flex flex-column p-1 border-dark">
+    <label for="nome">Nome:</label>
+    <input id="nome" type="text">
+    <label for="senha">Senha:</label>
+    <input id="senha" type="password">
+    <button class="btn btn-dark">Enviar</button>
+  </div>
+  <form [formGroup]="form" (ngSubmit)="submitForm()">
+    <div class="modal-body">
 
+      <div class="form-row">
+        <div class="mb-3 col-md-12">
+          <label for="titulotarefa" class="form-label">Titulo Tarefa
+
+          </label>
+          <input type="text" class="form-control" id="titulotarefa" formControlName="tituloTarefa" placeholder="Digite o título da tarefa">
+          <div *ngIf="iscampovalido('tituloTarefa')" class="text-danger">
+            Campo Obrigatório
+          </div>
+        </div>
+
+
+        <div class="mb-3 col-md-6">
+          <label class="form-label" for="datainiciotarefa" >Data Inicio</label>
+          <input class="form-control" type="datetime-local" id="datainiciotarefa" formControlName="dataInicioTarefa">
+          <div *ngIf="iscampovalido('dataInicioTarefa')" class="text-danger">
+            Campo Obrigatório
+          </div>
+        </div>
+        <div class="mb-3 col-md-6">
+          <label class="form-label" for="dataconclusaotarefa" >Data Conclusão</label>
+          <input class="form-control" type="datetime-local" id="dataconclusaotarefa" formControlName="dataCoclusaoTarefa">
+          <div *ngIf="iscampovalido('dataCoclusaoTarefa')" class="text-danger">
+            Campo Obrigatório
+          </div>
+        </div>
+
+      </div>
+
+      <div>
+        <div class="mb-3 col-md-6"></div>
+        <div class="mb-3 col-md-6"></div>
+
+        <div class="md-3 col">
+          <label >Status</label>
+          <select class="form-control" formControlName="statusTarefa">
+            <option value="NOVA">Nova</option>
+            <option value="EM ANDAMENTO" >Em andamento</option>
+            <option value="CONCLUIDA">Concluida</option>
+          </select>
+          <div *ngIf="iscampovalido('statusTarefa')" class="text-danger">
+            Campo Obrigatório
+          </div>
+        </div>
+        <div class="md-12 col-md-12">
+          <label >Descrição da Tarefa</label>
+          <textarea class="form-control" rows="3" formControlName="descricaoTarefa"></textarea>
+          <div *ngIf="iscampovalido('descricaoTarefa')" class="text-danger">
+            Campo Obrigatório
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-secondary" type="button" data-bs-dismiss="modal"
+              (click)="closeModal()">Fechar</button>
+      <button class="btn btn-success" type="submit">Salvar</button>
+    </div>
+  </form>
+
+</div>

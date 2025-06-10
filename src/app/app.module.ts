@@ -10,6 +10,7 @@ import { FilmesComponent } from './componentes/filmes/filmes.component';
 import { CadastroUsuarioComponent } from './componentes/cadastro-usuario/cadastro-usuario.component';
 import { SobreComponent } from './componentes/sobre/sobre.component';
 import { SeriesComponent } from './componentes/series/series.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -22,11 +23,12 @@ import { SeriesComponent } from './componentes/series/series.component';
     SobreComponent,
     SeriesComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        ReactiveFormsModule,
 
-  ],
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
