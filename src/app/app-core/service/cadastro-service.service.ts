@@ -9,13 +9,10 @@ export class CadastroServiceService extends Dexie{
 
   usuario: Dexie.Table<Usuario,number>;
 
-
-
-
   constructor() {
     super('UsuarioDB');
     this.version(1).stores({
-      usuario: '++id,nome,email,password,'
+      usuario: '++id,nome,email,password'
     });
     this.usuario = this.table('usuario');
   }

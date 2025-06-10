@@ -4,9 +4,9 @@ import { PaginaInicialComponent } from './componentes/pagina-inicial/pagina-inic
 import {FooterComponent} from "./componentes/footer/footer.component";
 import {FilmesComponent} from "./componentes/filmes/filmes.component";
 import {HeaderComponent} from "./componentes/header/header.component";
-import {CadastroUsuarioComponent} from "./componentes/cadastro-usuario/cadastro-usuario.component";
 import {SobreComponent} from "./componentes/sobre/sobre.component";
 import {SeriesComponent} from "./componentes/series/series.component";
+import {CadastroUsuarioComponent} from "./componentes/cadastro-usuario/cadastro-usuario.component";
 
 const routes: Routes = [
   {path: '',redirectTo:"pagina-inicial",pathMatch:"full"},

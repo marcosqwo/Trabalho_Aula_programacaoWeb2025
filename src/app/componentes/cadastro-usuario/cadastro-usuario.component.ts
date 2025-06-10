@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
-import { CadastroServiceService } from '../../app-core/service/cadastro-service.service'; // ajuste conforme o caminho
-import { Usuario } from '../../app-core/model/usuario'; // ajuste conforme o caminho
+import { Usuario } from '../../app-core/model/usuario';
+import {CadastroServiceService} from "../../app-core/service/cadastro-service.service"; // ajuste conforme o caminho
 
 @Component({
   selector: 'app-cadastro-usuario',
@@ -18,7 +18,7 @@ export class CadastroUsuarioComponent implements OnInit {
   constructor(
     private tarefaService: CadastroServiceService,
     private fb: FormBuilder,
-    private router: Router // Corrigido "Private" para "private"
+    private router: Router
   ) {
     this.form = this.fb.group({
       nome: ['', Validators.required],
@@ -74,4 +74,13 @@ export class CadastroUsuarioComponent implements OnInit {
       this.form.get(campo)?.markAsTouched();
     });
   }
+
+
+  iscampovalido(inputName:string):boolean{
+    const campo: any = this.form.get(inputName);
+    return campo && campo.touched && campo.invalid;
+  }
 }
+
+
+
