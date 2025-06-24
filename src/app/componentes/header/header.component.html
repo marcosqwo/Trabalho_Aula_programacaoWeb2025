@@ -2,15 +2,12 @@
 
 <nav class="navbar navbar-expand navbar-dark bg-dark">
   <h1 class="navbar-brand ">Tudo Filmes</h1>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02"
-          aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+
 
   <div class="collapse navbar-collapse gap-3" id="navbarsExample02">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" [routerLink]="'pagina-inicial'" [routerLinkActive]="'active'">Inicio<span class="sr-only">(atual)</span></a>
+        <a class="btn btn-secondary nav-link" [routerLink]="'pagina-inicial'" [routerLinkActive]="'active'">Inicio<span class="sr-only">(atual)</span></a>
       </li>
     </ul>
     <div class="dropdown">
@@ -25,7 +22,7 @@
     <div class="d-flex ms-auto form-inline my-2 my-md-0 align-items-center gap-2">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="'cadastro'" [routerLinkActive]="'active'">Cadastrar<span class="sr-only">(atual)</span></a>
+          <a class="nav-link btn btn-secondary" [routerLink]="'cadastro'" [routerLinkActive]="'active'">Cadastrar<span class="sr-only">(atual)</span></a>
         </li>
       </ul>
       <form class="d-flex">

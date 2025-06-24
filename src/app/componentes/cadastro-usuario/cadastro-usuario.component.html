@@ -1,12 +1,4 @@
-<!--<div class="bg-dark">-->
-<!--  <div class="form-control bg-dark text-white d-flex flex-column p-1 border-dark">-->
-<!--    <label for="nome">Nome:</label>-->
-<!--    <input id="nome" type="text">-->
-<!--    <label for="senha">Senha:</label>-->
-<!--    <input  type="password">-->
-<!--    <button class="btn btn-dark">Enviar</button>-->
 
-<!--  </div>-->
 <!--  <form [formGroup]="form" (ngSubmit)="submitForm()" class="text-white text-center align-content-center">-->
 <!--    <div class="form-row">-->
 <!--      <div class="mb-3 col-md-12">-->
@@ -40,7 +32,7 @@
 
 <!--</div>-->
 
-<section class="vh-100" style="background-color: #eee;">
+<section class="min-vh-100 bg-dark" >
   <div class="container h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-lg-12 col-xl-11">
@@ -49,51 +41,57 @@
             <div class="row justify-content-center">
               <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
 
-                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
+                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Cadastre-se</p>
 
-                <form class="mx-1 mx-md-4">
+                <form [formGroup]="form" (ngSubmit)="submitForm()" class="mx-1 mx-md-4 form-control ">
 
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                     <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                      <input type="text" id="form3Example1c" class="form-control" />
-                      <label class="form-label" for="form3Example1c">Your Name</label>
+                      <label class="form-label" for="nome">Nome:</label>
+                      <input type="text" id="nome" class="form-control" formControlName="nome" placeholder="Digite o seu Nome"/>
+                      <div *ngIf="iscampovalido('nome')" class="text-danger">
+                        Campo Obrigatório!
+                      </div>
                     </div>
                   </div>
 
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                     <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                      <input type="email" id="form3Example3c" class="form-control" />
-                      <label class="form-label" for="form3Example3c">Your Email</label>
+                      <label class="form-label" for="email">Email:</label>
+                      <input type="email" id="email" class="form-control" formControlName="email" placeholder="Digite o seu E-mail" />
+                      <div *ngIf="iscampovalido('email')" class="text-danger">
+                        Campo Obrigatório!
+                      </div>
                     </div>
                   </div>
 
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                     <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                      <input type="password" id="form3Example4c" class="form-control" />
-                      <label class="form-label" for="form3Example4c">Password</label>
+                      <label class="form-label" for="password">Senha:</label>
+                      <input type="password" id="password" class="form-control" formControlName="password" placeholder="Digite a Sua Senha" />
+                      <div *ngIf="iscampovalido('password')" class="text-danger">
+                        Campo Obrigatório!
+                      </div>
                     </div>
                   </div>
 
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                     <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                      <input type="password" id="form3Example4cd" class="form-control" />
-                      <label class="form-label" for="form3Example4cd">Repeat your password</label>
+                      <label class="form-label" for="passwordrepeat">Repita a Senha:</label>
+                      <input type="password" id="passwordrepeat" class="form-control" placeholder="Repita a Senha" />
+                      <div *ngIf="iscampovalido('passwordrepeat')" class="text-danger">
+                        Campo Obrigatório!
+                      </div>
                     </div>
                   </div>
 
-                  <div class="form-check d-flex justify-content-center mb-5">
-                    <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3c" />
-                    <label class="form-check-label" for="form2Example3">
-                      I agree all statements in <a href="#!">Terms of service</a>
-                    </label>
-                  </div>
 
                   <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                    <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg">Register</button>
+                    <button  type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg">Registrar</button>
                   </div>
 
                 </form>
@@ -101,7 +99,7 @@
               </div>
               <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
 
-                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
+                <img src="assets/imgs/ChatGPT%20Image%2012%20de%20jun.%20de%202025,%2017_37_10.png"
                      class="img-fluid" alt="Sample image">
 
               </div>
