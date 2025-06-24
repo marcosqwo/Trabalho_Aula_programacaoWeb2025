@@ -1,14 +1,16 @@
 export class Filmes {
 
-  id: number;
+  id?: number;
   nome: string;
   sinopse: string;
-  imagem?: string;
+  imagem: string;
+  link: string;
 
-  constructor(id: number, nome: string, sinopse: string, imagem?: string) {
+  constructor(nome: string, sinopse: string, imagem: string, link : string, id?: number) {
     this.id = id;
     this.nome = nome;
     this.sinopse = sinopse;
+    this.link = link;
     this.imagem = imagem;
   }
 
