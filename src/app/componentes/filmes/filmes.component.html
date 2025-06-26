@@ -1,34 +1,62 @@
 <div class="shadow bg-dark text-white">
 
 
-  <div class="modal-title container">
+  <div class="title container">
     <h1 class=" bg-secondary p-3 rounded-3">Filmes</h1>
-    <div>
-      <div class="text-center d-flex gap-5">
-        <figure>
-          <a class="text-white link-primary">
-            <img src="assets/imgs/oddity.webp" width="300" height="400">
-            <figcaption class="text-center">Oddity</figcaption>
-          </a>
-        </figure>
-        <figure>
-          <a class="link-primary text-white ">
-            <img src="assets/imgs/coringa-2.jpg" width="300" height="400">
-            <figcaption class="text-center">Coringa 2</figcaption>
-          </a>
-        </figure>
-        <figure>
-          <a class="link-primary text-white" href="#">
-            <img src="assets/imgs/pecadores.jpg" width="300" height="400">
-            <figcaption class="text-center"></figcaption>
-          </a>
-        </figure>
+    <div class="text-center">
+      <div class="text-center d-flex">
+        <div class="col-md-12 d-flex">
+          <figure class="col-md-4" *ngFor="let filme of listafilmes;let i = index">
+            <a class="text-white link-primary" (click)="openModalFilmes();setFilmeAtual(filme)" style="cursor:pointer">
+              <img src="{{filme.imagem}}" width="300" height="400">
+              <figcaption class="text-center">{{ filme.nome}}</figcaption>
+            </a>
+          </figure>
+
+        </div>
+
       </div>
 
     </div>
 
 
-  </div>
-
-
 </div>
+
+  <div class="modal fade" id="visualizar-filme" tabindex="-1" role="dialog" aria-labelledby="visualizar-filme" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="Visualizar"></h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close" (click)="closeModalFilmes()">&times;</button>
+        </div>
+
+        <div class="modal-body">
+          <img [src]="filmesvisualizar?.imagem" alt="imagem da tarefa" *ngIf="filmesvisualizar?.imagem" style="max-width: 100%; max-height: 300px; height: auto">
+          <p class="text-center"> <strong>Nome:</strong>
+            {{filmesvisualizar?.nome}}
+
+
+          </p>
+          <p>
+            <strong>Sinopse:</strong>
+            {{filmesvisualizar?.sinopse}}
+
+          </p>
+
+
+          <div class="video-container" *ngIf="safeIframe">
+            <div [innerHTML]="safeIframe"></div>
+          </div>
+
+
+
+
+        </div>
+        <div class="modal-footer">
+          <button class="btn-secondary" type="button" data-dismiss="modal" (click)="closeModalFilmes()">Fechar</button>
+        </div>
+
+      </div>
+    </div>
+
+  </div>

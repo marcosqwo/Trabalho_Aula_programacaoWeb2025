@@ -5,9 +5,15 @@
       <div class="text-center d-flex">
         <div class="col-md-12 d-flex">
           <figure class="col-md-4" *ngFor="let filme of listafilmes;let i = index">
-            <a class="text-white link-primary" (click)="openModal()" style="cursor:pointer">
+            <a class="text-white link-primary" (click)="openModalFilmes() ; setFilmeAtual(filme)" style="cursor:pointer" data-toggle="modal" data-target="#visualizar-filme">
               <img src="{{filme.imagem}}" width="300" height="400">
               <figcaption class="text-center">{{ filme.nome}}</figcaption>
+            </a>
+          </figure>
+          <figure class="col-md-4" *ngFor="let serie of listaseries;let i = index">
+            <a class="text-white link-primary" (click)="openModalSeries() ;setSerieAtual(serie)" style="cursor:pointer" data-toggle="modal" data-target="#visualizar-serie">
+              <img src="{{serie.imagem}}" width="300" height="400">
+              <figcaption class="text-center">{{ serie.nome}}</figcaption>
             </a>
           </figure>
 
@@ -24,38 +30,79 @@
 </div>
 
 <div class="modal fade" id="visualizar-filme" tabindex="-1" role="dialog" aria-labelledby="visualizar-filme" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="Visualizar"></h5>
-        <button class="close" type="button" data-dismiss="modal" aria-label="Close" (click)="closeModal()">&times;</button>
+        <button class="close" type="button" data-dismiss="modal" aria-label="Close" (click)="closeModalFilmes()">&times;</button>
       </div>
 
       <div class="modal-body">
-        <p> <strong>Titulo:</strong>
-<!--          {{ tarefaVisualizar?.titulo }}-->
+        <img [src]="filmesvisualizar?.imagem" alt="imagem da tarefa" *ngIf="filmesvisualizar?.imagem" style="max-width: 100%; max-height: 300px; height: auto">
+        <p class="text-center"> <strong>Nome:</strong>
+            {{filmesvisualizar?.nome}}
+
+
         </p>
         <p>
           <strong>Sinopse:</strong>
-<!--          {{ tarefaVisualizar?.descricaoTarefa }}-->
-        </p>
-        <p>
-          <strong>Trailer:</strong>
-<!--          {{ tarefaVisualizar?.statusTarefa }}-->
-        </p>
-        <p>
-          <strong>Data Inicio:</strong>
-<!--          {{ tarefaVisualizar?.dataInicio | date:'dd/MM/yyyy'}}-->
-        </p>
-        <p>
-          <strong>Data Conclusão:</strong>
-<!--          {{ tarefaVisualizar?.dataConclusao | date:'dd/MM/yyyy'}}-->
+            {{filmesvisualizar?.sinopse}}
+
         </p>
 
-<!--        <img [src]="tarefaVisualizar?.imagem" alt="imagem da tarefa" *ngIf="tarefaVisualizar?.imagem" style="max-width: 100%; max-height: 300px; height: auto">-->
+
+        <div class="video-container" *ngIf="safeIframe">
+          <div [innerHTML]="safeIframe"></div>
+        </div>
+
+
+
+
       </div>
       <div class="modal-footer">
-        <button class="btn-secondary" type="button" data-dismiss="modal">Fechar</button>
+        <button class="btn-secondary" type="button" data-dismiss="modal" (click)="closeModalFilmes()">Fechar</button>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+
+<div class="modal fade" id="visualizar-serie" tabindex="-1" role="dialog" aria-labelledby="visualizar-serie" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="Visualizar"></h5>
+        <button class="close" type="button" data-dismiss="modal" aria-label="Close" (click)="closeModalSerie()">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <img [src]="serievisualizar?.imagem" alt="imagem da serie" *ngIf="serievisualizar?.imagem" style="max-width: 100%; max-height: 300px; height: auto">
+
+        <p class="text-center">
+          <strong>Nome:</strong>
+          {{serievisualizar?.nome}}
+
+
+        </p>
+        <p>
+          <strong>Sinopse:</strong>
+          {{serievisualizar?.sinopse}}
+
+        </p>
+
+
+        <div class="video-container" *ngIf="safeIframe">
+          <div [innerHTML]="safeIframe"></div>
+        </div>
+
+
+
+
+      </div>
+      <div class="modal-footer">
+        <button class="btn-secondary" type="button" data-dismiss="modal" (click)="closeModalSerie()">Fechar</button>
       </div>
 
     </div>

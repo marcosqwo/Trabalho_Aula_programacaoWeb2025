@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import Dexie from "dexie";
 import {Usuario} from "../model/usuario";
 import {Filmes} from "../model/filmes";
+import {Series} from "../model/series";
 
 @Injectable({
   providedIn: 'root'
@@ -9,15 +10,18 @@ import {Filmes} from "../model/filmes";
 export class FilmesServiceService extends Dexie{
   usuario: Dexie.Table<Usuario,number>;
   filme: Dexie.Table<Filmes,number>;
+  serie: Dexie.Table<Series,number>;
 
   constructor() {
     super('UsuarioDB');
     this.version(1).stores({
       usuario: '++id,nome,email,password',
-      filme:'++id,nome,sinopse,imagem'
+      filme:'++id,nome,sinopse,imagem',
+      serie:'++id,nome,sinopse,imagem'
     });
     this.usuario = this.table('usuario');
     this.filme = this.table('filme');
+    this.serie = this.table('serie');
 
 
     this.populafilmes();
@@ -36,10 +40,8 @@ export class FilmesServiceService extends Dexie{
 
       'assets/imgs/oddity.webp',
 
-      '<iframe width="1346" height="729" src="https://www.youtube.com/embed/Ttzb2uIDkmE"' +
-      ' title="Oddity - Objetos Obscuros (2024) | Trailer Legendado" frameborder="0" ' +
-      'allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" ' +
-      'referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>');
+      '<iframe height="400px" width="100%" src="https://www.youtube.com/embed/Ttzb2uIDkmE" title="Oddity - Objetos Obscuros (2024) | Trailer Legendado" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
+    );
     this.filme.add(filme1);
 
     let filme2 = new Filmes('Coringa: Delírio a Dois',
@@ -49,7 +51,7 @@ export class FilmesServiceService extends Dexie{
       'Preso no hospital psiquiátrico de Arkham, ele acaba conhecendo Harleen "Lee" Quinzel (Lady Gaga). A curiosidade mútua acaba se transformando em paixão e obsessão e eles desenvolvem um relacionamento romântico e doentio. Lee e Arthur embarcam em uma desventura alucinada, fervorosa e musical pelo submundo de Gotham City, enquanto o julgamento público  ' +
       'Coringa se desenrola, impactando toda a cidade e suas próprias mentes conturbadas.',
       'assets/imgs/coringa-2.jpg',
-      '<iframe width="1296" height="729" src="https://www.youtube.com/embed/sHG2sAi2R-s" title="Coringa: Delírio a Dois | Trailer Oficial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>');
+      '<iframe height="400px" width="100%" src="https://www.youtube.com/embed/sHG2sAi2R-s" title="Coringa: Delírio a Dois | Trailer Oficial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>');
     this.filme.add(filme2);
     let filme3 = new Filmes('Pecadores',
       'Em Pecadores, Michael B. Jordan interpreta irmãos gêmeos que voltam à sua cidade natal com o objetivo de reconstruir a vida e apagar um passado conturbado. ' +
@@ -58,7 +60,7 @@ export class FilmesServiceService extends Dexie{
       'Smoke e Stack (Michael B. Jordan) terão que lidar com as lendas e os mitos ameaçadores que podem estar por trás desse terror. Dirigido por Ryan Coogler (mesmo realizador de Pantera Negra e Creed) numa parceria já consagrada com Michael B. Jordan, ' +
       'Pecadores traz um thriller intenso com elementos sobrenaturais numa história repleta de mistérios.',
       'assets/imgs/pecadores.jpg',
-      '<iframe width="1296" height="729" src="https://www.youtube.com/embed/e9kwQahD8YY" title="Pecadores l Trailer Oficial #2 Dublado" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>');
+      '<iframe height="400px" width="100%" src="https://www.youtube.com/embed/e9kwQahD8YY" title="Pecadores l Trailer Oficial #2 Dublado" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>');
     this.filme.add(filme3);
 
   }
