@@ -28,6 +28,7 @@ export class FilmesServiceService extends Dexie{
 
   }
   populafilmes(){
+    this.filme.clear();
     let filme1: Filmes = new Filmes('Oddity',
       'Em Oddity - Objetos Obscuros, quando Dani (Carolyn Bracken) é brutalmente assassinada em uma remota casa ' +
       'de campo que ela e seu marido, Ted (Gwilym Lee), estão reformando, a investigação logo se concentra em um paciente ' +

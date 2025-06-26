@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { Usuario } from '../../app-core/model/usuario';
-import {CadastroServiceService} from "../../app-core/service/cadastro-service.service"; // ajuste conforme o caminho
+import {CadastroServiceService} from "../../app-core/service/cadastro-service.service";
 
 @Component({
   selector: 'app-cadastro-usuario',
@@ -14,6 +14,7 @@ export class CadastroUsuarioComponent implements OnInit {
 
   usuario: Usuario[] = [];
   form: FormGroup;
+
 
   constructor(
     private tarefaService: CadastroServiceService,
@@ -49,6 +50,9 @@ export class CadastroUsuarioComponent implements OnInit {
       this.tarefaService.adicionarUsuario(novoUsuario).then(resposta => {
         if (resposta > 0) {
           Swal.fire('Sucesso!', 'Usuário(a) salvo(a) com sucesso!', 'success').then(() => {
+
+            this.tarefaService.setUsuarioLogado(novoUsuario);
+
             this.form.reset();
             this.router.navigate(['/']);
           });

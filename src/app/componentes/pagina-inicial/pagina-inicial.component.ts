@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {CadastroServiceService} from "../../app-core/service/cadastro-service.service";
 import {FilmesServiceService} from "../../app-core/service/filmes-service.service";
 import {Filmes} from "../../app-core/model/filmes";
 import {Series} from "../../app-core/model/series";

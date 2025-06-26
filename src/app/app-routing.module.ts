@@ -7,6 +7,8 @@ import {HeaderComponent} from "./componentes/header/header.component";
 import {SobreComponent} from "./componentes/sobre/sobre.component";
 import {SeriesComponent} from "./componentes/series/series.component";
 import {CadastroUsuarioComponent} from "./componentes/cadastro-usuario/cadastro-usuario.component";
+import {LoginComponent} from "./componentes/login/login.component";
+import {EditarusuarioComponent} from "./componentes/editarusuario/editarusuario.component";
 
 const routes: Routes = [
   {path: '',redirectTo:"pagina-inicial",pathMatch:"full"},
@@ -16,7 +18,11 @@ const routes: Routes = [
   {path: 'header', component: HeaderComponent},
   {path: 'cadastro', component: CadastroUsuarioComponent},
   {path: 'sobre', component: SobreComponent},
-  {path: 'series', component: SeriesComponent}
+  {path: 'series', component: SeriesComponent},
+  {path: 'login', component: LoginComponent},
+  {path: 'editar-usuario', component: EditarusuarioComponent},
+
+
 
 ];
 

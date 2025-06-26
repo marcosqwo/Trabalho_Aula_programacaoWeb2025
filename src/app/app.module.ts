@@ -11,6 +11,8 @@ import { CadastroUsuarioComponent } from './componentes/cadastro-usuario/cadastr
 import { SobreComponent } from './componentes/sobre/sobre.component';
 import { SeriesComponent } from './componentes/series/series.component';
 import {ReactiveFormsModule} from "@angular/forms";
+import { LoginComponent } from './componentes/login/login.component';
+import { EditarusuarioComponent } from './componentes/editarusuario/editarusuario.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import {ReactiveFormsModule} from "@angular/forms";
     FilmesComponent,
     CadastroUsuarioComponent,
     SobreComponent,
-    SeriesComponent
+    SeriesComponent,
+    LoginComponent,
+    EditarusuarioComponent
   ],
     imports: [
         BrowserModule,

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {CadastroServiceService} from "../../app-core/service/cadastro-service.service";
 
 @Component({
   selector: 'app-header',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  usuarioLogado: any | null = null;
+
+  constructor(private cadastroService: CadastroServiceService) { }
 
   ngOnInit(): void {
+
+    this.cadastroService.usuariologado$.subscribe(usuario => {
+      this.usuarioLogado = usuario;
+    })
+
   }
 
 }
