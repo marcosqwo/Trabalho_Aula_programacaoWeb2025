@@ -1,0 +1,23 @@
+<div class="container-fluid text-white bg-dark min-vh-100">
+  <h2 class="text-center py-3">{{ filme?.nome }}</h2>
+
+  <div *ngIf="loading" class="text-center py-5">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Carregando...</span>
+    </div>
+    <p class="mt-2">Carregando filme...</p>
+  </div>
+
+  <div class="video-container mt-4" *ngIf="safeIframe && !loading">
+    <div [innerHTML]="safeIframe"></div>
+  </div>
+
+  <div *ngIf="!loading && !safeIframe" class="text-center py-5">
+    <div class="alert alert-warning">
+      Não foi possível carregar o player do filme.
+    </div>
+    <button class="btn btn-primary mt-3" (click)="carregarFilme(filme?.id || 0)">
+      Tentar novamente
+    </button>
+  </div>
+</div>

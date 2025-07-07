@@ -48,7 +48,7 @@ export class PaginaInicialComponent implements OnInit {
   }
   setFilmeAtual(t:Filmes){
     this.filmesvisualizar=t;
-    this.safeIframe = this.sanitizer.bypassSecurityTrustHtml(t.link);
+    this.safeIframe = this.sanitizer.bypassSecurityTrustHtml(t.linktrailer);
   }
   setSerieAtual(t:Series){
     this.serievisualizar=t;

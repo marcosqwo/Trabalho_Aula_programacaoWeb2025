@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {CadastroServiceService} from "../../app-core/service/cadastro-service.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-header',
@@ -10,7 +11,10 @@ export class HeaderComponent implements OnInit {
 
   usuarioLogado: any | null = null;
 
-  constructor(private cadastroService: CadastroServiceService) { }
+  constructor(
+    private cadastroService: CadastroServiceService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
 
@@ -19,5 +23,7 @@ export class HeaderComponent implements OnInit {
     })
 
   }
-
+  logout() {
+    this.cadastroService.logoutUsuario();
+  }
 }

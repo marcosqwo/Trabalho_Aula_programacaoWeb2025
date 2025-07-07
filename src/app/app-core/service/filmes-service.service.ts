@@ -16,8 +16,8 @@ export class FilmesServiceService extends Dexie{
     super('UsuarioDB');
     this.version(1).stores({
       usuario: '++id,nome,email,password',
-      filme:'++id,nome,sinopse,imagem',
-      serie:'++id,nome,sinopse,imagem'
+      filme:'++id,nome,sinopse,imagem,link,linktrailer',
+      serie:'++id,nome,sinopse,imagem,link'
     });
     this.usuario = this.table('usuario');
     this.filme = this.table('filme');
@@ -39,7 +39,18 @@ export class FilmesServiceService extends Dexie{
       'determinados a descobrir a verdade e a vingar Dani. À medida que Darcy utiliza suas habilidades sobrenaturais e os itens amaldiçoados ' +
       'para investigar, segredos enterrados começam a emergir, revelando uma teia de mentiras, traições e forças ocultas.',
 
-      'assets/imgs/oddity.webp',
+      'assets/imgs/oddity.webp','<iframe \n' +
+      '    name="Player"\n' +
+      '    src="https://redecanais.gs/player3/server.php?server=RCFServer3&subfolder=ondemand&vid=ODITYOBJTSOBSCRS"\n' +
+      '    frameborder="0"\n' +
+      '    height="700"\n' +
+      '    width="100%"\n' +
+      '    allow="encrypted-media; fullscreen"\n' +
+      '    allowfullscreen\n' +
+      '    title="Player de Vídeo"\n' +
+      '    loading="lazy"\n' +
+      '    style="border: none;">\n' +
+      '</iframe>',
 
       '<iframe height="400px" width="100%" src="https://www.youtube.com/embed/Ttzb2uIDkmE" title="Oddity - Objetos Obscuros (2024) | Trailer Legendado" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
     );
@@ -52,16 +63,27 @@ export class FilmesServiceService extends Dexie{
       'Preso no hospital psiquiátrico de Arkham, ele acaba conhecendo Harleen "Lee" Quinzel (Lady Gaga). A curiosidade mútua acaba se transformando em paixão e obsessão e eles desenvolvem um relacionamento romântico e doentio. Lee e Arthur embarcam em uma desventura alucinada, fervorosa e musical pelo submundo de Gotham City, enquanto o julgamento público  ' +
       'Coringa se desenrola, impactando toda a cidade e suas próprias mentes conturbadas.',
       'assets/imgs/coringa-2.jpg',
-      '<iframe height="400px" width="100%" src="https://www.youtube.com/embed/sHG2sAi2R-s" title="Coringa: Delírio a Dois | Trailer Oficial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>');
+      '<iframe \n' +
+      '    name="Player" \n' +
+      '    src="https://redecanais.gs/player3/server.php?server=RCFServer3&subfolder=ondemand&vid=CRNGADLRIOADOS" \n' +
+      '    frameborder="0" \n' +
+      '    height="700" \n' +
+      '    width="100%" \n' +
+      '    allow="encrypted-media; fullscreen" \n' +
+      '    allowfullscreen\n' +
+      '    title="Reprodutor de Vídeo">\n' +
+      '</iframe>','<iframe height="400px" width="100%" src="https://www.youtube.com/embed/sHG2sAi2R-s" title="Coringa: Delírio a Dois | Trailer Oficial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>');
     this.filme.add(filme2);
+
     let filme3 = new Filmes('Pecadores',
       'Em Pecadores, Michael B. Jordan interpreta irmãos gêmeos que voltam à sua cidade natal com o objetivo de reconstruir a vida e apagar um passado conturbado. ' +
       'Esses acontecimentos, porém, voltam a atormentá-los quando uma força maligna passa a persegui-los, trazendo para a superfície medos e traumas. ' +
       'Esse mal busca tomar conta da cidade e de todos os cidadãos, obrigando-os a lutar para sobreviver. Mais do que contornar os demônios dominadores e famintos por poder (e sangue), ' +
       'Smoke e Stack (Michael B. Jordan) terão que lidar com as lendas e os mitos ameaçadores que podem estar por trás desse terror. Dirigido por Ryan Coogler (mesmo realizador de Pantera Negra e Creed) numa parceria já consagrada com Michael B. Jordan, ' +
       'Pecadores traz um thriller intenso com elementos sobrenaturais numa história repleta de mistérios.',
-      'assets/imgs/pecadores.jpg',
-      '<iframe height="400px" width="100%" src="https://www.youtube.com/embed/e9kwQahD8YY" title="Pecadores l Trailer Oficial #2 Dublado" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>');
+      'assets/imgs/pecadores.jpeg',
+      '<iframe name="Player" src="https://redecanais.gs/player3/server.php?server=RCFServer3&subfolder=ondemand&vid=PCDRS" ' +
+      'frameborder="0" height="700px" width="100%" allow="encrypted-media" allowfullscreen></iframe>','<iframe height="400px" width="100%" src="https://www.youtube.com/embed/V3spHR5x5QY" title="Pecadores l Trailer Oficial Dublado" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>');
     this.filme.add(filme3);
 
   }

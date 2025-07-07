@@ -9,6 +9,7 @@ import {SeriesComponent} from "./componentes/series/series.component";
 import {CadastroUsuarioComponent} from "./componentes/cadastro-usuario/cadastro-usuario.component";
 import {LoginComponent} from "./componentes/login/login.component";
 import {EditarusuarioComponent} from "./componentes/editarusuario/editarusuario.component";
+import {PlayerFilmesComponent} from "./componentes/player-filmes/player-filmes.component";
 
 const routes: Routes = [
   {path: '',redirectTo:"pagina-inicial",pathMatch:"full"},
@@ -21,6 +22,7 @@ const routes: Routes = [
   {path: 'series', component: SeriesComponent},
   {path: 'login', component: LoginComponent},
   {path: 'editar-usuario', component: EditarusuarioComponent},
+  {path: 'assistir-filme/:id', component: PlayerFilmesComponent},
 
 
 

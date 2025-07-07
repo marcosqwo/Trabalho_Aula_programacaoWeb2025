@@ -27,8 +27,15 @@
         <li class="nav-item" *ngIf="!usuarioLogado">
           <a class="nav-link btn btn-secondary" [routerLink]="'login'" [routerLinkActive]="'active'">Login <span class="sr-only"></span></a>
         </li>
-        <li class="nav-item" *ngIf="usuarioLogado">
-          <a class="nav-link btn btn-secondary" [routerLink]="'editar-usuario'" [routerLinkActive]="'active'">{{usuarioLogado?.nome}} <span class="sr-only"></span></a>
+        <li class="nav-item dropdown" *ngIf="usuarioLogado">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+            {{ usuarioLogado?.nome }}
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+            <li><a class="dropdown-item" [routerLink]="'editar-usuario'">Editar Perfil</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item text-danger" [routerLink]="'pagina-inicial'" (click)="logout()">Sair</a></li>
+          </ul>
         </li>
       </ul>
       <form class="d-flex">

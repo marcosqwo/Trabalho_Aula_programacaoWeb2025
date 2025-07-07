@@ -13,6 +13,7 @@ import { SeriesComponent } from './componentes/series/series.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import { LoginComponent } from './componentes/login/login.component';
 import { EditarusuarioComponent } from './componentes/editarusuario/editarusuario.component';
+import { PlayerFilmesComponent } from './componentes/player-filmes/player-filmes.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { EditarusuarioComponent } from './componentes/editarusuario/editarusuari
     SobreComponent,
     SeriesComponent,
     LoginComponent,
-    EditarusuarioComponent
+    EditarusuarioComponent,
+    PlayerFilmesComponent
   ],
     imports: [
         BrowserModule,

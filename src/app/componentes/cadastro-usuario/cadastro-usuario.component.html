@@ -48,10 +48,15 @@
                     <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                     <div data-mdb-input-init class="form-outline flex-fill mb-0">
                       <label class="form-label" for="passwordrepeat">Repita a Senha:</label>
-                      <input type="password" id="passwordrepeat" class="form-control" placeholder="Repita a Senha" />
-                      <div *ngIf="iscampovalido('passwordrepeat')" class="text-danger">
+                      <input type="password" id="passwordrepeat" class="form-control" formControlName="passwordrepeat" placeholder="Repita a Senha" />
+
+                      <div *ngIf="form.get('passwordrepeat')?.touched && form.get('passwordrepeat')?.errors?.['required']" class="text-danger">
                         Campo Obrigatório!
                       </div>
+                      <div *ngIf="form.errors?.['notSame'] && form.get('passwordrepeat')?.touched" class="text-danger">
+                        As senhas não coincidem!
+                      </div>
+
                     </div>
                   </div>
 

@@ -17,8 +17,8 @@ export class SerieserviceService extends Dexie{
     super('UsuarioDB');
     this.version(1).stores({
       usuario: '++id,nome,email,password',
-      filme:'++id,nome,sinopse,imagem',
-      serie:'++id,nome,sinopse,imagem'
+      filme:'++id,nome,sinopse,imagem,link',
+      serie:'++id,nome,sinopse,imagem,link'
     });
     this.usuario = this.table('usuario');
     this.filme = this.table('filme');
@@ -35,6 +35,7 @@ export class SerieserviceService extends Dexie{
       'conhecimento de química para fazer e vender metanfetamina, uma droga sintética. Ele conta com a ajuda do ex-aluno e pequeno traficante Jesse (Aaron Paul) e enfrenta vários desafios, incluindo o fato de seu ' +
       'concunhado ser um importante nome dentro da Agência Anti-Drogas da região.', 'assets/imgs/brakingbad.webp','<iframe height="400px" width="100%" src="https://www.youtube.com/embed/HhesaQXLuRY" title="Breaking Bad Trailer (First Season)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>' );
     this.serie.add(serie1);
+
 
 
 

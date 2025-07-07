@@ -23,10 +23,12 @@ export class CadastroUsuarioComponent implements OnInit {
   ) {
     this.form = this.fb.group({
       nome: ['', Validators.required],
-      email: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
-      id: [0],
-    });
+      passwordrepeat: ['', Validators.required],
+      id: [0]
+    }, { validators: this.checkPasswords});
+
   }
 
   ngOnInit(): void { }
@@ -38,6 +40,12 @@ export class CadastroUsuarioComponent implements OnInit {
       this.salvarUsuario();
     }
   }
+  checkPasswords(group: FormGroup) {
+    const password = group.get('password')?.value;
+    const confirmPassword = group.get('passwordrepeat')?.value;
+    return password === confirmPassword ? null : { notSame: true };
+  }
+
 
   salvarUsuario(): void {
     if (this.form.valid) {
